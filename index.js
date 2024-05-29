@@ -1,11 +1,12 @@
-import 'dotenv/config';
-import pg from "pg";
-const { Pool } = pg;
+import express from 'express';
 
-// Conectarnos a la base de datos Postgres
-const pool = new Pool({
-    allowExitOnIdle : true,
-    connectionString : process.env.CONNECTION_STRING
-})
+// Importación de rutas
+import estudianteRoutes from './routes/estudiantes.route.js';
 
+const app = express();
 
+// Rutas
+app.use('/estudiantes', estudianteRoutes);
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log('Servidor andando http://localhost' + PORT))
