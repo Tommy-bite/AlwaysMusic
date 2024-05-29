@@ -7,11 +7,9 @@ const router = Router();
 
 router.get('/' , estudianteController.getEstudiantes)
 router.post('/agregar' , estudianteController.createEstudiante)
+router.delete('/eliminar/:id' , estudianteController.deleteEstudiante)
 
 
-
-
-router.delete('/eliminar/:id' , estudianteController.deleteTodo)
 router.put('/modificar' , estudianteController.updateTodo)
 
 export default router;
