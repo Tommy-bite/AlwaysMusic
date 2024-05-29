@@ -13,7 +13,7 @@ body: {
     "nombre" : "carlitos",
     "rut" : "11.111.111-k",
     "curso" : "4TO A",
-    "nivel" : 3
+    "nivel" : "3"
 }
 ```
 
