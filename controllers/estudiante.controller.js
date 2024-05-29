@@ -12,8 +12,29 @@ const getEstudiantes = async (req, res) => {
 
 }
 
-const createTodo = (req, res) => {
-    return res.json({ok:true})
+const createEstudiante = async (req, res) => {
+    try {
+
+        const { nombre, rut, curso, nivel } = req.body;
+
+        if (!nombre || !rut || !curso || !nivel) {
+            return res.status(400).send({ message: 'Todos los campos son obligatorios' });
+        }
+
+        const estudianteObj = {
+            nombre,
+            rut,
+            curso,
+            nivel,
+        }
+
+        const estudiante = await estudianteModel.insertEstudiante(estudianteObj)
+        return res.json(estudiante)
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ error})
+    }
+
 }
 
 const updateTodo = (req, res) => {
@@ -27,7 +48,7 @@ const deleteTodo = (req, res) => {
 
 export const estudianteController = {
     getEstudiantes,
-    createTodo,
+    createEstudiante,
     updateTodo,
     deleteTodo
 }
