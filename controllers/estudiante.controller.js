@@ -3,6 +3,11 @@ import { estudianteModel } from "../models/estudiantes.model.js";
 const getEstudiantes = async (req, res) => {
   try {
     const estudiantes = await estudianteModel.allEstudiantes();
+
+    if(!estudiantes) {
+      return res.status(200).send({message : "No hay estudiantes para mostrar"})
+    }
+
     return res.json(estudiantes);
   } catch (error) {
     console.log(error);
