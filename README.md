@@ -22,6 +22,9 @@ PUT '/estudiante/modificar/:id'
 
 body: {
     "nombre" : "nombre actualizado",
+    "rut" : "rut actualizado",
+    "curso" : "curso actualizado",
+    "nivel" : "nivel actualizado"
 }
 ```
 
